@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>文章页面</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/popper.js/1.14.4/esm/popper.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="css/edit.css">
+    <link rel="stylesheet" href="css/blog.css">
+    <link rel="stylesheet" href="css/article.css">
+    <script src="js/article.js"></script>
+
+</head>
+<body>
+<!--导航栏-->
+<nav id="top-nav" class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
+    <a class="navbar-brand" href="blog.html"><img src="images/logo.png"></a>
+    <ul class="navbar-nav">
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                我的博客
+            </a>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" href="#">分类1</a>
+                <a class="dropdown-item" href="#">分类2</a>
+                <a class="dropdown-item" href="#">分类3</a>
+            </div>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="edit.html">发表文章</a>
+        </li>
+    </ul>
+</nav>
+
+<div id="article">
+
+</div>
+<!--发表评论-->
+<div class="container comment">
+    <div class="col-sm-12">
+        <form>
+            <div class="input-group mb-3 bottom">
+                <div class="input-group-append">
+                    <span class="input-group-text">评论内容</span>
+                </div>
+                <textarea id="comment-content" name="comment-content" class="form-control"></textarea>
+            </div>
+            <button id="comment-post" type="button" class="btn btn-primary" disabled>发表评论</button>
+        </form>
+    </div>
+</div>
+
+
+<!--评论-->
+<div class="container">
+    <h4 id="comment-title">评论:</h4>
+    <div id="comment-list">
+
+    </div>
+
+</div>
+<!--插件-->
+<script type="text/javascript" src="conn/WeiChunCaiChaJian/lib/jquery.js"></script>
+<script type="text/javascript" src="conn/WeiChunCaiChaJian/dist/chuncai.js"></script>
+<script type="text/javascript">
+    $.chuncai();
+</script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+.article .article-content{
+    word-wrap:break-word;
+    background-color: white;
+    height: 800px;
+
+}
+.article .article-title{
+    background-color: #d8d8d8;
+    height: available;
+    border-right: rgba(255, 255, 255, 0.5) solid 13px;
+
+}
+.article{
+    margin-left: 69px;
+    margin-right: 69px;
+    margin-top: 60px;
+}
+#comment-content{
+    resize: none;
+    height: 200px;
+}
+.comment{
+    padding: 0;
+}
+.comment-content{
+    background-color: rgba(255, 255, 255, 0.7);
+    padding:0;
+    border-radius: 20px;
+    margin-top: 10px;
+}
+.comment-content .comment-usr{
+    height: 20px;
+}
+.comment-content .comment-saying{
+    height: 100px;
+}
+.comment-content .comment-usr span{
+    margin-left: 10px;
+}
+.comment-content .comment-saying p{
+    margin-left: 10px;
+}

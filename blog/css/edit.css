@@ -1,0 +1,25 @@
+body{
+    background-image: url("../images/blog-background.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#top-nav img{
+    width: 40px;
+    height: 30px;
+    border-radius: 10px;
+}
+.container{
+    margin-top: 96px;
+}
+.container form{
+    width: 100%;
+}
+
+#article-bi{
+    resize: none;
+    height: 110px;
+}
+#article-content{
+    resize: none;
+    height: 340px;
+}

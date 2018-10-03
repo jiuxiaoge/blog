@@ -1,0 +1,152 @@
+#####################################################################################################################
+文档: index.html
+
+操作: login
+前端发送请求:
+type : "GET"
+data : {"usr" : $usr, "pwd" : $pwd, "act" : "login"}
+//usr:用户名，pwd:密码, act:执行登陆操作login
+//判断用户名和密码是否匹配，匹配返回1，不匹配返回0
+后端返回格式:
+{"num" : "1"}或{"num" : "0"}
+
+操作: signup
+前端发送请求:
+type : "GET"
+data : {"usr" : $usr, "pwd" : $pwd, "act" : "signup"}
+//usr:用户名，pwd:密码, act:执行登陆操作signup
+//判断用户名和密码是否与已有用户重复，不重复返回1，重复返回0
+后端返回格式:
+{"num" : "1"}或{"num" : "0"}
+
+
+
+#####################################################################################################################
+
+#####################################################################################################################
+文档: blog.html
+
+操作: check
+前端发送请求:
+type : "GET",
+data : {"act" : "check"}
+//act:执行登陆操作check
+//检查当前登陆的用户情况，并返回当前用户姓名
+后端返回格式
+{"article_author" : "usrname"}
+
+操作: tab_page
+前端发送请求:
+type : "GET",
+data : {"article_author" : $article_author , "act" : "tab_page"}
+//article_author:当前登陆的作者名字 act:执行添加分页功能
+//后端查询当前登陆的作者已写过的文章，每页显示五条内容，所以将文章总数除以5得到的结果返回前端
+后端返回格式
+{"count" : "number"}
+//number是计算得到的结果
+
+操作: load
+前端发送请求:
+type : "GET",
+data : {"article_author" : $article_author , "act" : "load"}
+//article_author:当前登陆的作者名字 act:执行加载文章信息的操作
+//将当前登陆的作者的文章的id，标题，简介，编辑时间返回给前端
+后端返回格式
+{"article_id" : "id", "article_title" : "标题", "article_bi" : "简介", "editor_time" : "时间"}
+
+
+
+#####################################################################################################################
+
+#####################################################################################################################
+文档: article.html
+
+操作: load_article
+前端发送请求:
+type : "GET"
+data : {"article_id" : $id, "article_author" : $author ,"act" : "load_article"}
+//article_id: 当前文章的id，article_author: 当前文章的作者信息 ,act:执行加载当前文章的详细信息的操作
+//用户通过点击文章详情，会进入文章详情页面，前端拿到点击到的文章id和作者信息，返回给后端，后端返回该作者对应的文章中对应id
+的文章所有内容和标题，发布时间。
+后端返回格式
+{"article_content" : "content", "article_title" : "标题", "editor_time" : "时间"}
+
+操作: load_comment
+前端发送请求:
+type : "GET"
+data : {"article_id" : $article_id , "act" : "load_comment"}
+//article_id: 当前文章的id，act:执行加载当前文章的所有评论的操作
+//根据文章id和当前登陆的用户姓名加载当前文章的所有评论信息和评论的人的信息
+后端返回格式(json数组)
+[{"comment_content" : "content1", "comment_author" : "author1"},{"comment_content" : "content2", "comment_author" : "author2"}]
+
+操作: check
+前端发送请求:
+type : "GET",
+data : {"act" : "check"}
+//act:执行登陆操作check
+//检查当前登陆的用户情况，并返回当前用户姓名(为了看当前评论的人是谁）
+后端返回格式
+{"article_author" : "usrname"}
+
+操作: comment
+前端发送请求:
+type : "GET",
+data : {"comment_author" : $comment_author, "comment_content" : $comment_content, "act" : "comment"}
+//comment_author:当前评论的人的名字，comment_content:评论的内容，act:代表操作comment
+//用户输入评论，点击发布，前端将数据返回给后端，后端存入数据库即可,成功返回num为1，不成功返回num为0
+后端返回格式
+{"num" : "1"}或{"num" : "0"}
+
+
+#####################################################################################################################
+
+#####################################################################################################################
+文档: editor.html
+
+操作: check
+前端发送请求:
+type : "GET",
+data : {"act" : "check"}
+//act:执行登陆操作check
+//检查当前登陆的用户情况，并返回当前用户姓名(为了看当前编辑文章的人是谁）
+后端返回格式
+{"article_author" : "usrname"}
+
+操作: edit
+前端发送请求:
+type : "GET",
+data : {"article_author" : $article_author,
+                            "article_title" : $article_title,
+                            "article_bi" : $article_bi,
+                            "article_content" : $article_content,
+                            "editor_time" : $time,
+                            "act" : "edit"}
+//article_author:当前评论的人的名字，article_title:文章的标题，article_bi:文章的简介，article_content:文章的主要内容
+                             editor_time:文章的发布时间，act:代表操作edit
+//用户输入文章内容，点击发布，前端将数据返回给后端，后端存入数据库即可,成功返回num为1，不成功返回num为0
+后端返回格式
+{"num" : "1"}或{"num" : "0"}
+#####################################################################################################################
+
+#####################################################################################################################
+文档: find.html
+
+操作: tab_page
+前端发送请求:
+type : "GET",
+data : {"act" : "tab_page"}
+//act:执行添加分页功能
+//后端查询所有已写过的文章，每页显示10条内容，所以将文章总数除以10得到的结果返回前端
+后端返回格式
+{"count" : "number"}
+//number是计算得到的结果
+
+操作: load
+前端发送请求:
+type : "GET",
+data : {"act" : "load"}
+//act:执行加载文章信息的操作
+//将后台所有文章的id，标题，作者名字返回给前端
+后端返回格式
+{"article_id" : "id", "article_title" : "标题", "article_author" : "作者名字"}
